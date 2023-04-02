@@ -53,14 +53,17 @@ PREPARE_IB_CONFIG() {
 for ((i = 0; i < ${numMaster}; i++)); do
     ssh ${REMOTE_USER_NAME}@${MasterNodeIPs[$i]} ${PREPARE_CLUSTER_CONFIG}
 done
+echo 'Master config finished!'
 
 for ((i = 0; i < ${numRouting}; i++)); do
     ssh ${REMOTE_USER_NAME}@${RoutingNodeIPs[$i]} ${PREPARE_CLUSTER_CONFIG}
 done
+echo 'Routing Nodes config finished!'
 
 for ((i = 0; i < ${numBenchmark}; i++)); do
     ssh ${REMOTE_USER_NAME}@${BenchmarkNodeIPs[$i]} ${PREPARE_CLUSTER_CONFIG}
 done
+echo 'Benchmark nodes config finished!'
 
 pidList=[]
 for ((i = 0; i < ${numMemory}; i++)); do
@@ -74,6 +77,7 @@ for ((i = 0; i < ${numMemory}; i++)); do
         pidList[$((i))]=$!
     fi
 done
+echo 'Memory nodes config finished!'
 
 for ((i = 0; i < ${numStorage}; i++)); do
     ssh ${REMOTE_USER_NAME}@${StorageNodeIPs[$i]} ${PREPARE_CLUSTER_CONFIG}
@@ -86,6 +90,8 @@ for ((i = 0; i < ${numStorage}; i++)); do
         pidList[$((i + numMemory))]=$!
     fi
 done
+
+echo "DPM config finished!"
 
 for pid in ${pidList[*]}; do
     wait $pid
