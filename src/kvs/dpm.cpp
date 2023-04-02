@@ -10,6 +10,7 @@
 
 #include <string>
 
+
 int run_client(int num_concurr_msgs);
 
 FILE *log_fp = NULL;
@@ -69,14 +70,30 @@ int main(int argc, char *argv[])
             num_storage_managers, msg_size, storage_node_ips, sock_port, rank, 
             is_server, storage_capacities);
 
+    LOG(LOG_SUB_HEADER, "====After ib_init======");
+
     for (int i = 0; i < num_initial_storage_nodes; i++)
         free(storage_node_ips[i]);
+
+
+    LOG(LOG_SUB_HEADER, "====Before free======");
+
     free(sock_port);
 
-    if (config_info.is_server)
+
+    LOG(LOG_SUB_HEADER, "====After free======");
+
+    if (config_info.is_server) {
+        LOG(LOG_SUB_HEADER, "====In the IF======");
         ret = run_server(config_info.threads_per_storage);
-    else
+        LOG(LOG_SUB_HEADER, "====After run_server======");
+    }
+    else {
+        LOG(LOG_SUB_HEADER, "====In the ELSE======");
         ret = run_client(config_info.threads_per_memory);
+        LOG(LOG_SUB_HEADER, "====After run_client======");
+    }
+
     check(ret == 0, "Failed to run workload");
 
 error:

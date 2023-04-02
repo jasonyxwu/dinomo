@@ -257,10 +257,26 @@ void ib_init(int total_available_memory_nodes, int num_initial_memory_nodes,
     check(ret == 0, "Failed to config");
 
     ret = init_env();
+
+
+
+    LOG(LOG_SUB_HEADER, "=====Before check=====");
     check(ret == 0, "Failed to init env");
 
+
+
+    LOG(LOG_SUB_HEADER, "=====After check=====");
+
+
     ret = setup_ib();
+
+
+    LOG(LOG_SUB_HEADER, "=====After setup_ib()=====");
+
+
     check(ret == 0, "Failed to setup IB");
+
+    LOG(LOG_SUB_HEADER, "=====Before return=====");
 
     return ;
 error:
