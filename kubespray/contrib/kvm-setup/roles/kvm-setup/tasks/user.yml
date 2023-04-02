@@ -7,7 +7,7 @@
 
 - name: Ensure that .ssh exists
   file:
-    path: "/home/{{ k8s_deployment_user }}/.ssh"
+    path: "/users/{{ k8s_deployment_user }}/.ssh"
     state: directory
     owner: "{{ k8s_deployment_user }}"
     group: "{{ k8s_deployment_user }}"
@@ -25,22 +25,22 @@
 - name: Write private SSH key
   copy:
     src: "{{ k8s_deployment_user_pkey_path }}"
-    dest: "/home/{{ k8s_deployment_user }}/.ssh/id_rsa"
+    dest: "/users/{{ k8s_deployment_user }}/.ssh/id_rsa"
     mode: 0400
     owner: "{{ k8s_deployment_user }}"
     group: "{{ k8s_deployment_user }}"
   when: k8s_deployment_user_pkey_path is defined
 
 - name: Write public SSH key
-  shell: "ssh-keygen -y -f /home/{{ k8s_deployment_user }}/.ssh/id_rsa \
-            > /home/{{ k8s_deployment_user }}/.ssh/authorized_keys"
+  shell: "ssh-keygen -y -f /users/{{ k8s_deployment_user }}/.ssh/id_rsa \
+    > /users/{{ k8s_deployment_user }}/.ssh/authorized_keys"
   args:
-    creates: "/home/{{ k8s_deployment_user }}/.ssh/authorized_keys"
+    creates: "/users/{{ k8s_deployment_user }}/.ssh/authorized_keys"
   when: k8s_deployment_user_pkey_path is defined
 
 - name: Fix ssh-pub-key permissions
   file:
-    path: "/home/{{ k8s_deployment_user }}/.ssh/authorized_keys"
+    path: "/users/{{ k8s_deployment_user }}/.ssh/authorized_keys"
     mode: 0600
     owner: "{{ k8s_deployment_user }}"
     group: "{{ k8s_deployment_user }}"

@@ -7,6 +7,7 @@ from dinomo.shared import util
 
 BATCH_SIZE = 100
 
+
 def create_cluster(mem_count, route_count, bench_count, cfile, ssh_key, kvs_type, cluster_name):
     if 'DINOMO_HOME' not in os.environ:
         raise ValueError('DINOMO_HOME environment variable must be set to be '
@@ -16,13 +17,16 @@ def create_cluster(mem_count, route_count, bench_count, cfile, ssh_key, kvs_type
     prefix = os.path.join(os.environ['DINOMO_HOME'], 'cluster/dinomo/cluster')
 
     # Prepare to configure a cluster by installing dependencies
-    util.run_process(['./prepare_host_configurations.sh', ssh_key], 'dinomo/cluster/kubespray')
+    util.run_process(['./prepare_host_configurations.sh',
+                     ssh_key], 'dinomo/cluster/kubespray')
 
     # Run disaggregated storage node
     util.run_process(['./run_storage_nodes.sh'], 'dinomo/cluster/kubespray')
 
     # Organize an initial cluster through kubespray
-    util.run_process(['./create_cluster_object.sh', ssh_key], 'dinomo/cluster/kubespray')
+    util.run_process(['./create_cluster_object.sh', ssh_key],
+                     'dinomo/cluster/kubespray')
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='''Creates a Dinomo cluster
@@ -35,11 +39,11 @@ if __name__ == '__main__':
                                     default ($DINOMO_HOME/conf/dinomo-base.yml).''')
 
     if 'DINOMO_HOME' not in os.environ:
-        os.environ['DINOMO_HOME'] = "/home/cc/projects/DINOMO/"
+        os.environ['DINOMO_HOME'] = "/users/yangt2/projects/DINOMO/"
     if 'DINOMO_CLUSTER_NAME' not in os.environ:
         os.environ['DINOMO_CLUSTER_NAME'] = "DINOMO_k8s_CLUSTER"
     if 'REMOTE_USER_NAME' not in os.environ:
-        os.environ['REMOTE_USER_NAME'] = "cc"
+        os.environ['REMOTE_USER_NAME'] = "yangt2"
 
     parser.add_argument('-m', '--memory', nargs=1, type=int, metavar='M',
                         help='The number of memory nodes to start with ' +

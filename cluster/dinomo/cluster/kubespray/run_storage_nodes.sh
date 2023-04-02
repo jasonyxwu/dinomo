@@ -19,19 +19,19 @@ PREPARE_STORAGE_CONFIG="sudo apt-get install -y autoconf binutils-dev bison cmak
     openssl libffi-dev zlib1g-dev net-tools && \
     cd projects && \
     git clone https://github.com/utsaslab/dinomo.git DINOMO && \
-    cp /home/${REMOTE_USER_NAME}/dinomo-config.yml /home/${REMOTE_USER_NAME}/projects/DINOMO/conf/ && \
+    cp /users/${REMOTE_USER_NAME}/dinomo-config.yml /users/${REMOTE_USER_NAME}/projects/DINOMO/conf/ && \
     cd DINOMO/common/scripts && sudo ./install-dependencies.sh g++ && \
     cd ../../ && bash scripts/build.sh -bRelease -j8 -g;"
 
 for ((i = 0; i < ${numStorage}; i++)); do
     if [[ -z "${REMOTE_USER_NAME}" ]]; then
-        scp /home/${REMOTE_USER_NAME}/projects/DINOMO/conf/dinomo-base.yml ${REMOTE_USER_NAME}@${StorageNodeIPs[$i]}:/home/${REMOTE_USER_NAME}/dinomo-config.yml
+        scp /users/${REMOTE_USER_NAME}/projects/DINOMO/conf/dinomo-base.yml ${REMOTE_USER_NAME}@${StorageNodeIPs[$i]}:/users/${REMOTE_USER_NAME}/dinomo-config.yml
         ssh ${REMOTE_USER_NAME}@${StorageNodeIPs[$i]} ${PREPARE_STORAGE_CONFIG} 
-        scp /home/${REMOTE_USER_NAME}/projects/DINOMO/conf/dinomo-base.yml ${REMOTE_USER_NAME}@${StorageNodeIPs[$i]}:/home/${REMOTE_USER_NAME}/projects/DINOMO/conf/dinomo-config.yml
+        scp /users/${REMOTE_USER_NAME}/projects/DINOMO/conf/dinomo-base.yml ${REMOTE_USER_NAME}@${StorageNodeIPs[$i]}:/users/${REMOTE_USER_NAME}/projects/DINOMO/conf/dinomo-config.yml
     else
-        scp /home/${REMOTE_USER_NAME}/projects/DINOMO/conf/dinomo-base.yml ${REMOTE_USER_NAME}@${StorageNodeIPs[$i]}:/home/${REMOTE_USER_NAME}/dinomo-config.yml
+        scp /users/${REMOTE_USER_NAME}/projects/DINOMO/conf/dinomo-base.yml ${REMOTE_USER_NAME}@${StorageNodeIPs[$i]}:/users/${REMOTE_USER_NAME}/dinomo-config.yml
         ssh ${REMOTE_USER_NAME}@${StorageNodeIPs[$i]} ${PREPARE_STORAGE_CONFIG} 
-        scp /home/${REMOTE_USER_NAME}/projects/DINOMO/conf/dinomo-base.yml ${REMOTE_USER_NAME}@${StorageNodeIPs[$i]}:/home/${REMOTE_USER_NAME}/projects/DINOMO/conf/dinomo-config.yml
+        scp /users/${REMOTE_USER_NAME}/projects/DINOMO/conf/dinomo-base.yml ${REMOTE_USER_NAME}@${StorageNodeIPs[$i]}:/users/${REMOTE_USER_NAME}/projects/DINOMO/conf/dinomo-config.yml
     fi
 done
 

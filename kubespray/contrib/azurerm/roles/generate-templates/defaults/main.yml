@@ -24,7 +24,7 @@ bastionIPAddressName: bastion-pubip
 
 disablePasswordAuthentication: true
 
-sshKeyPath: "/home/{{admin_username}}/.ssh/authorized_keys"
+sshKeyPath: "/users/{{admin_username}}/.ssh/authorized_keys"
 
 imageReference:
   publisher: "OpenLogic"

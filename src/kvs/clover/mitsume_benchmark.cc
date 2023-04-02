@@ -572,52 +572,52 @@ int mitsume_benchmark(struct mitsume_ctx_clt *local_ctx_clt, int _num_clients, i
     if (wl == WORKLOAD_A) {
         if (dstr == ZIPFIAN) {
             printf("WorkloadA, Zipfian\n");
-            init_file = "/home/cc/projects/Delta-Hybrid/index-microbench/workloads/zipfian/0.99/load_unif_int.dat";
-            txn_file = "/home/cc/projects/Delta-Hybrid/index-microbench/workloads/zipfian/0.99/txnsa_unif_int.dat";
+            init_file = "/users/yangt2/projects/Delta-Hybrid/index-microbench/workloads/zipfian/0.99/load_unif_int.dat";
+            txn_file = "/users/yangt2/projects/Delta-Hybrid/index-microbench/workloads/zipfian/0.99/txnsa_unif_int.dat";
         } else {
             printf("WorkloadA, Uniform\n");
-            init_file = "/home/cc/projects/Delta-Hybrid/index-microbench/workloads/uniform/load_unif_int.dat";
-            txn_file = "/home/cc/projects/Delta-Hybrid/index-microbench/workloads/uniform/txnsa_unif_int.dat";
+            init_file = "/users/yangt2/projects/Delta-Hybrid/index-microbench/workloads/uniform/load_unif_int.dat";
+            txn_file = "/users/yangt2/projects/Delta-Hybrid/index-microbench/workloads/uniform/txnsa_unif_int.dat";
         }
     } else if (wl == WORKLOAD_B) {
         if (dstr == ZIPFIAN) {
             printf("WorkloadB, Zipfian\n");
-            init_file = "/home/cc/projects/Delta-Hybrid/index-microbench/workloads/zipfian/0.99/load_unif_int.dat";
-            txn_file = "/home/cc/projects/Delta-Hybrid/index-microbench/workloads/zipfian/0.99/txnsb_unif_int.dat";
+            init_file = "/users/yangt2/projects/Delta-Hybrid/index-microbench/workloads/zipfian/0.99/load_unif_int.dat";
+            txn_file = "/users/yangt2/projects/Delta-Hybrid/index-microbench/workloads/zipfian/0.99/txnsb_unif_int.dat";
         } else {
             printf("WorkloadB, Uniform\n");
-            init_file = "/home/cc/projects/Delta-Hybrid/index-microbench/workloads/uniform/load_unif_int.dat";
-            txn_file = "/home/cc/projects/Delta-Hybrid/index-microbench/workloads/uniform/txnsb_unif_int.dat";
+            init_file = "/users/yangt2/projects/Delta-Hybrid/index-microbench/workloads/uniform/load_unif_int.dat";
+            txn_file = "/users/yangt2/projects/Delta-Hybrid/index-microbench/workloads/uniform/txnsb_unif_int.dat";
         }
     } else if (wl == WORKLOAD_C) {
         if (dstr == ZIPFIAN) {
             printf("WorkloadC, Zipfian\n");
-            init_file = "/home/cc/projects/Delta-Hybrid/index-microbench/workloads/zipfian/0.99/load_unif_int.dat";
-            txn_file = "/home/cc/projects/Delta-Hybrid/index-microbench/workloads/zipfian/0.99/txnsc_unif_int.dat";
+            init_file = "/users/yangt2/projects/Delta-Hybrid/index-microbench/workloads/zipfian/0.99/load_unif_int.dat";
+            txn_file = "/users/yangt2/projects/Delta-Hybrid/index-microbench/workloads/zipfian/0.99/txnsc_unif_int.dat";
         } else {
             printf("WorkloadC, Uniform\n");
-            init_file = "/home/cc/projects/Delta-Hybrid/index-microbench/workloads/uniform/load_unif_int.dat";
-            txn_file = "/home/cc/projects/Delta-Hybrid/index-microbench/workloads/uniform/txnsc_unif_int.dat";
+            init_file = "/users/yangt2/projects/Delta-Hybrid/index-microbench/workloads/uniform/load_unif_int.dat";
+            txn_file = "/users/yangt2/projects/Delta-Hybrid/index-microbench/workloads/uniform/txnsc_unif_int.dat";
         }
     } else if (wl == WORKLOAD_D) {
         if (dstr == ZIPFIAN) {
             printf("WorkloadD, Zipfian\n");
-            init_file = "/home/cc/projects/Delta-Hybrid/index-microbench/workloads/zipfian/0.99/load_unif_int.dat";
-            txn_file = "/home/cc/projects/Delta-Hybrid/index-microbench/workloads/zipfian/0.99/txnsd_unif_int.dat";
+            init_file = "/users/yangt2/projects/Delta-Hybrid/index-microbench/workloads/zipfian/0.99/load_unif_int.dat";
+            txn_file = "/users/yangt2/projects/Delta-Hybrid/index-microbench/workloads/zipfian/0.99/txnsd_unif_int.dat";
         } else {
             printf("WorkloadD, Uniform\n");
-            init_file = "/home/cc/projects/Delta-Hybrid/index-microbench/workloads/uniform/load_unif_int.dat";
-            txn_file = "/home/cc/projects/Delta-Hybrid/index-microbench/workloads/uniform/txnsd_unif_int.dat";
+            init_file = "/users/yangt2/projects/Delta-Hybrid/index-microbench/workloads/uniform/load_unif_int.dat";
+            txn_file = "/users/yangt2/projects/Delta-Hybrid/index-microbench/workloads/uniform/txnsd_unif_int.dat";
         }
     } else if (wl == WORKLOAD_F) {
         if (dstr == ZIPFIAN) {
             printf("WorkloadF, Zipfian\n");
-            init_file = "/home/cc/projects/Delta-Hybrid/index-microbench/workloads/zipfian/0.99/load_unif_int.dat";
-            txn_file = "/home/cc/projects/Delta-Hybrid/index-microbench/workloads/zipfian/0.99/txnsf_unif_int.dat";
+            init_file = "/users/yangt2/projects/Delta-Hybrid/index-microbench/workloads/zipfian/0.99/load_unif_int.dat";
+            txn_file = "/users/yangt2/projects/Delta-Hybrid/index-microbench/workloads/zipfian/0.99/txnsf_unif_int.dat";
         } else {
             printf("WorkloadF, Uniform\n");
-            init_file = "/home/cc/projects/Delta-Hybrid/index-microbench/workloads/uniform/load_unif_int.dat";
-            txn_file = "/home/cc/projects/Delta-Hybrid/index-microbench/workloads/uniform/txnsf_unif_int.dat";
+            init_file = "/users/yangt2/projects/Delta-Hybrid/index-microbench/workloads/uniform/load_unif_int.dat";
+            txn_file = "/users/yangt2/projects/Delta-Hybrid/index-microbench/workloads/uniform/txnsf_unif_int.dat";
         }
     }
 

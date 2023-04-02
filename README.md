@@ -59,7 +59,9 @@ with a command line interface.
 -   Ubuntu18.04
 -   Connectx-3 RNIC
 
-## MAKE SURE the master is able to ssh others !!!
+## MAKE SURE the master is able to ssh others!!!
+
+## DPM and Memory Nodes can be preconfigured to save time!!!
 
 ### Download source codes
 
