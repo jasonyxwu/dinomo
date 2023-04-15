@@ -62,7 +62,7 @@ with a command line interface.
 ### Download source codes
 
 ```
-cd ~/; mkdir projects; cd projects; git clone https://github.com/utsaslab/dinomo.git DINOMO; cd DINOMO
+cd ~/; mkdir projects; cd projects; git clone https://github.com/jasonyxwu/dinomo.git DINOMO; cd DINOMO
 ```
 
 ### Install dependency
