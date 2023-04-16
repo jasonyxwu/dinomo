@@ -34,7 +34,7 @@ gen_yml_list() {
 
 cd $DINOMO_HOME
 
-git pull https://github.com/utsaslab/dinomo.git
+git pull https://github.com/jasonyxwu/dinomo.git
 
 mkdir -p conf
 

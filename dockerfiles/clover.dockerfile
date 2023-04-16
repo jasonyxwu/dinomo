@@ -6,7 +6,7 @@ USER root
 
 # Build DINOMO
 WORKDIR $DINOMO_HOME
-RUN git pull https://github.com/utsaslab/dinomo.git
+RUN git pull https://github.com/jasonyxwu/dinomo.git
 RUN bash scripts/build.sh -j16 -bRelease -g -c
 WORKDIR /
 
