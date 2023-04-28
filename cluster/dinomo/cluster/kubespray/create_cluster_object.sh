@@ -53,7 +53,7 @@ mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
-#sudo docker login
+sudo docker login
 
 #sudo kubectl create secret docker-registry regcred --docker-server=<your-registry-server> --docker-username=<your-name> --docker-password=<your-pword> --docker-email=<your-email>
 sudo kubectl create secret generic regcred --from-file=.dockerconfigjson=/home/${REMOTE_USER_NAME}/.docker/config.json --type=kubernetes.io/dockerconfigjson
