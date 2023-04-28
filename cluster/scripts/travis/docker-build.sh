@@ -17,17 +17,17 @@
 # Only build a new Docker image if this is a master branch build -- ignore this
 # for PR builds, because we don't want to update the docker image.
 if [[ "$TRAVIS_BRANCH" = "master" ]] && [[ "$TRAVIS_PULL_REQUEST" = "false" ]]; then
-  docker pull sekwonlee/base
-  docker pull sekwonlee/management
+  docker pull admwyx/base
+  docker pull admwyx/management
 
   cd dockerfiles
-  docker build . -f dinomo-base.dockerfile -t sekwonlee/base
+  docker build . -f dinomo-base.dockerfile -t admwyx/base
 
   cd cluster
-  docker build . -f management.dockerfile -t sekwonlee/management
+  docker build . -f management.dockerfile -t admwyx/management
 
   echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
-  docker push sekwonlee/base
-  docker push sekwonlee/management
+  docker push admwyx/base
+  docker push admwyx/management
 fi

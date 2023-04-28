@@ -1,4 +1,4 @@
-FROM sekwonlee/dinomo:base
+FROM admwyx/dinomo:base
 
 MAINTAINER Sekwon Lee <sekwonlee90@gmail..com> version: 0.1
 

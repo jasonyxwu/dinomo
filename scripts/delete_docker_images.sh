@@ -11,7 +11,7 @@ numDestination=${#DestinationIPs[@]}
 
 pidList=[]
 for ((i = 0; i < ${numDestination}; i++)); do
-    ssh ${USERNAME}@${DestinationIPs[$i]} 'sudo docker image rm $(sudo docker image ls --format "{{.Repository}} {{.ID}}" | grep "sekwonlee" | awk "{print $2}")' &
+    ssh ${USERNAME}@${DestinationIPs[$i]} 'sudo docker image rm $(sudo docker image ls --format "{{.Repository}} {{.ID}}" | grep "admwyx" | awk "{print $2}")' &
     pidList[i]=$!
 done
 
